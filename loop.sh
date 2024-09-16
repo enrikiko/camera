@@ -9,7 +9,7 @@ echo $dir
 while true; 
   do
   git pull
-  for i in `seq 1 20`
+  for i in `seq 1 2`
   do 
     python $dir/send.py
     sleep 1
