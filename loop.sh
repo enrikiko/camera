@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="home/miso/Desktop/camera/loop.sh"
+dir="home/miso/Desktop/camera"
 set -a
 . $dir/.env
 set +a
