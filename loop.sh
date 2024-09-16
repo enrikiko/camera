@@ -4,6 +4,8 @@ dir=$(pwd)
 set -a
 . $dir/.env
 set +a
+echo $CAMERA_KEY
+echo $dir
 while true; 
   do
   git pull
