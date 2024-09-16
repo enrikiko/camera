@@ -11,7 +11,7 @@ while true;
   git pull
   for i in `seq 1 20`
   do 
-    python $dir/send.sh 
+    python $dir/send.py
     sleep 1
   done
 done
