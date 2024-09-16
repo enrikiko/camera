@@ -20,6 +20,6 @@ while True:
             headers = {'tenant': 'tenant1', 'Content-Type': 'image/jpeg', 'camera' : 'camera1', 'x-api-key': os.environ['CAMERA_KEY'], 'Content-Length': str(len(binary_data))}    
         response = requests.post(url, data=binary_data, headers=headers)    
         print(response.text)
-        time.sleep(10) 
+        time.sleep(1) 
         secret = True
         break
