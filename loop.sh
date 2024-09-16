@@ -8,7 +8,8 @@ echo $CAMERA_KEY
 echo $dir
 while true; 
   do
-  git -C $dir pull
+  cd $dir
+  git pull
   . $dir/install.sh
   for i in `seq 1 2`
   do 
