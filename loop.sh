@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="home/miso/Desktop/camera"
+dir="/home/miso/Desktop/camera"
 cd $dir
 set -a
 . .env
