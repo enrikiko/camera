@@ -1,7 +1,8 @@
 import requests
 import base64
 import cv2
-import timeimport os
+import time
+import os
 camera = cv2.VideoCapture(0)
 secret = True
 while True:
