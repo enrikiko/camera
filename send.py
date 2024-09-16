@@ -7,7 +7,7 @@ camera = cv2.VideoCapture(0)
 secret = True
 while True:
     while secret==True:
-        time.sleep(0.2) 
+        time.sleep(1) 
         return_value,image = camera.read()    
         image_rotated = cv2.rotate(image, cv2.ROTATE_180)
         cv2.imwrite('test222.jpg',image)    
