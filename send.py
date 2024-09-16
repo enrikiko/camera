@@ -9,7 +9,7 @@ while True:
     while secret==True:
         return_value,image = camera.read()    
         image_rotated = cv2.rotate(image, cv2.ROTATE_180)
-        cv2.imwrite('test222.jpg',image_rotated)    
+        cv2.imwrite('test222.jpg',image)    
         secret = False
 
     while secret==False:
