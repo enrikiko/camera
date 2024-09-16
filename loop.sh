@@ -9,6 +9,7 @@ echo $dir
 while true; 
   do
   git pull
+  . $dir/install.sh
   for i in `seq 1 2`
   do 
     python $dir/send.py
