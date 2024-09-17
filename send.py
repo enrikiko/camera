@@ -22,8 +22,8 @@ def are_image_different(image1_path, image2_path):
     print(f"SSIM: {ssim_score:.4f}")
     # print(f"DIFF :{diff}")
     
-    if ssim_score == 1:
-        print("The images are identical (SSIM).")
+    if ssim_score >= 0.6:
+        print("The images are similar (SSIM).")
         return False
     else:
         print("The images are different (SSIM).")
@@ -43,9 +43,9 @@ while finish==False:
         if os.path.exists('/tmp/old_pic.jpg'):
             secret = False
         else:
-            os.system('cp /tmp/pic.jpg /tmp/old_pic.jpg')  
+            os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg')  
     if  are_image_different('/tmp/pic.jpg','/tmp/old_pic.jpg'):
-        os.system('cp /tmp/pic.jpg /tmp/old_pic.jpg')  
+        os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg')  
         url = 'https://cortijo-security-cameras-dev.cortijodemazas.com/update'
         with open('/tmp/pic.jpg', 'rb') as file:    
             binary_data = file.read()    
