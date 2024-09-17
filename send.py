@@ -20,7 +20,7 @@ def are_image_different(image1_path, image2_path):
     
     ssim_score, diff = compare_ssim(gray_image1, gray_image2, full=True)
     print(f"SSIM: {ssim_score:.4f}")
-    print(f"SSIM:{diff:.4f}")
+    print(f"DIFF :{diff}")
     
     if ssim_score == 1:
         print("The images are identical (SSIM).")
