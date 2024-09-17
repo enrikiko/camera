@@ -20,7 +20,7 @@ def are_image_different(image1_path, image2_path):
     
     ssim_score, diff = compare_ssim(gray_image1, gray_image2, full=True)
     print(f"SSIM: {ssim_score:.4f}")
-    print(f"DIFF :{diff}")
+    # print(f"DIFF :{diff}")
     
     if ssim_score == 1:
         print("The images are identical (SSIM).")
@@ -49,8 +49,9 @@ while finish==False:
         url = 'https://cortijo-security-cameras-dev.cortijodemazas.com/update'
         with open('/tmp/pic.jpg', 'rb') as file:    
             binary_data = file.read()    
-            headers = {'tenant': 'tenant1', 'Content-Type': 'image/jpeg', 'camera' : 'camera1', 'x-api-key': os.environ['CAMERA_KEY'], 'Content-Length': str(len(binary_data))}    
-        response = requests.post(url, data=binary_data, headers=headers)    
+            headers = {'tenant': 'tenant1', 'Content-Type': 'image/jpeg', 'camera': 'camera1', 'x-api-key': os.environ['CAMERA_KEY'], 'Content-Length': str(len(binary_data))}    
+        response = requests.post(url, data=binary_data, headers=headers)  
+        print("Pic send")
         print(response.text)
         finish = True
         break
