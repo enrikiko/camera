@@ -45,7 +45,6 @@ while finish==False:
         else:
             os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg')  
     if  are_image_different('/tmp/pic.jpg','/tmp/old_pic.jpg'):
-        os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg')  
         url = 'https://cortijo-security-cameras-dev.cortijodemazas.com/update'
         with open('/tmp/pic.jpg', 'rb') as file:    
             binary_data = file.read()    
@@ -53,5 +52,6 @@ while finish==False:
         response = requests.post(url, data=binary_data, headers=headers)  
         print("Pic send")
         print(response.text)
+        os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg') 
         finish = True
         break
