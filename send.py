@@ -67,3 +67,5 @@ while finish==False:
         os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg') 
         finish = True
         break
+    else: 
+        secret = True
