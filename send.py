@@ -39,14 +39,14 @@ while finish==False:
         print(f"New pic : {os.path.exists('/tmp/pic.jpg')}")
         print(f"secret : {secret}")
         print(f"finish : {finish}")
-        time.sleep(0.1) 
+        # time.sleep(0.1) 
         print("Taking pics")
         return_value,image = camera.read()   
-        time.sleep(0.1) 
+        # time.sleep(0.1) 
         image_rotated = cv2.rotate(image, cv2.ROTATE_180)
         cv2.imwrite('/tmp/pic.jpg',image)    
         print("Saving pics")
-        time.sleep(0.1) 
+        # time.sleep(0.1) 
         secret = False
         if os.path.exists('/tmp/old_pic.jpg'):
             secret = False
@@ -54,7 +54,7 @@ while finish==False:
         else:
             os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg')  
             print("Old pic not exist")
-        time.sleep(0.1) 
+        # time.sleep(0.1) 
     if  are_image_different('/tmp/pic.jpg','/tmp/old_pic.jpg'):
         print(f"Is diff pic: {are_image_different('/tmp/pic.jpg','/tmp/old_pic.jpg')}")
         url = 'https://cortijo-security-cameras-dev.cortijodemazas.com/update'
