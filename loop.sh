@@ -11,7 +11,7 @@ while true;
   cd $dir
   git pull
   . $dir/install.sh
-  for i in `seq 1 20`
+  for i in `seq 1 200`
   do 
     python $dir/send.py
   done
