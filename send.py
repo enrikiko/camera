@@ -44,14 +44,15 @@ while finish==False:
             secret = False
         else:
             os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg')  
-    if  are_image_different('/tmp/pic.jpg','/tmp/old_pic.jpg'):
-        url = 'https://cortijo-security-cameras-dev.cortijodemazas.com/update'
-        with open('/tmp/pic.jpg', 'rb') as file:    
-            binary_data = file.read()    
-            headers = {'tenant': 'tenant1', 'Content-Type': 'image/jpeg', 'camera': 'camera1', 'x-api-key': os.environ['CAMERA_KEY'], 'Content-Length': str(len(binary_data))}    
-        response = requests.post(url, data=binary_data, headers=headers)  
-        print("Pic send")
-        print(response.text)
-        os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg') 
-        finish = True
-        break
+    if secret==False:
+        if  are_image_different('/tmp/pic.jpg','/tmp/old_pic.jpg'):
+            url = 'https://cortijo-security-cameras-dev.cortijodemazas.com/update'
+            with open('/tmp/pic.jpg', 'rb') as file:    
+                binary_data = file.read()    
+                headers = {'tenant': 'tenant1', 'Content-Type': 'image/jpeg', 'camera': 'camera1', 'x-api-key': os.environ['CAMERA_KEY'], 'Content-Length': str(len(binary_data))}    
+            response = requests.post(url, data=binary_data, headers=headers)  
+            print("Pic send")
+            print(response.text)
+            os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg') 
+            finish = True
+            break
