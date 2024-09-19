@@ -68,4 +68,5 @@ while finish==False:
         finish = True
         break
     else: 
-        secret = True
+        finish = True
+        break
