@@ -22,7 +22,7 @@ def are_image_different(image1_path, image2_path):
     print(f"SSIM: {ssim_score}")
     # print(f"DIFF :{diff}")
     
-    if ssim_score >= 0.7:
+    if ssim_score >= 0.81:
         print("The images are similar (SSIM).")
         return False
     else:
