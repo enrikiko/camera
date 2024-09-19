@@ -22,7 +22,7 @@ def are_image_different(image1_path, image2_path):
     print(f"SSIM: {ssim_score}")
     # print(f"DIFF :{diff}")
     
-    if ssim_score >= 0.4:
+    if ssim_score <= 0.4:
         print("The images are similar (SSIM).")
         return False
     else:
@@ -35,6 +35,10 @@ finish = False
 
 while finish==False:
     while secret==True:
+        print(f"Old pic : {os.path.exists('/tmp/old_pic.jpg')}")
+        print(f"New pic : {os.path.exists('/tmp/pic.jpg')}")
+        print(f"secret : {secret}")
+        print(f"finish : {finish}")
         time.sleep(1) 
         return_value,image = camera.read()    
         image_rotated = cv2.rotate(image, cv2.ROTATE_180)
@@ -44,15 +48,15 @@ while finish==False:
             secret = False
         else:
             os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg')  
-    if secret==False:
-        if  are_image_different('/tmp/pic.jpg','/tmp/old_pic.jpg'):
-            url = 'https://cortijo-security-cameras-dev.cortijodemazas.com/update'
-            with open('/tmp/pic.jpg', 'rb') as file:    
-                binary_data = file.read()    
-                headers = {'tenant': 'tenant1', 'Content-Type': 'image/jpeg', 'camera': 'camera1', 'x-api-key': os.environ['CAMERA_KEY'], 'Content-Length': str(len(binary_data))}    
-            response = requests.post(url, data=binary_data, headers=headers)  
-            print("Pic send")
-            print(response.text)
-            os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg') 
-            finish = True
-            break
+    if  are_image_different('/tmp/pic.jpg','/tmp/old_pic.jpg'):
+        print(f"Is diff pic: {are_image_different('/tmp/pic.jpg','/tmp/old_pic.jpg')}")
+        url = 'https://cortijo-security-cameras-dev.cortijodemazas.com/update'
+        with open('/tmp/pic.jpg', 'rb') as file:    
+            binary_data = file.read()    
+            headers = {'tenant': 'tenant1', 'Content-Type': 'image/jpeg', 'camera': 'camera1', 'x-api-key': os.environ['CAMERA_KEY'], 'Content-Length': str(len(binary_data))}    
+        response = requests.post(url, data=binary_data, headers=headers)  
+        print("Pic send")
+        print(response.text)
+        os.system('mv /tmp/pic.jpg /tmp/old_pic.jpg') 
+        finish = True
+        break
