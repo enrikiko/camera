@@ -19,7 +19,7 @@ def are_image_different(image1_path, image2_path):
     gray_image2 = cv2.cvtColor(image2, cv2.COLOR_BGR2GRAY)
     
     ssim_score, diff = compare_ssim(gray_image1, gray_image2, full=True)
-    print(f"SSIM: {ssim_score:.4f}")
+    print(f"SSIM: {ssim_score}")
     # print(f"DIFF :{diff}")
     
     if ssim_score >= 0.6:
