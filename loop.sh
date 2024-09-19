@@ -14,6 +14,6 @@ while true;
   for i in `seq 1 20`
   do 
     python $dir/send.py
-    sleep 30
+    sleep 10
   done
 done
