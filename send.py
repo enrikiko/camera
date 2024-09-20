@@ -36,7 +36,7 @@ while finish==False:
         return_value,image = camera.read()   
         # time.sleep(0.1) 
         image_rotated = cv2.rotate(image, cv2.ROTATE_180)
-        cv2.imwrite('/tmp/pic.jpg',image)    
+        cv2.imwrite('/tmp/pic.jpg',image_rotated)    
         # print("Saving pics")
         # time.sleep(0.1) 
         secret = False
