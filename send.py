@@ -7,7 +7,7 @@ from skimage.metrics import structural_similarity as compare_ssim
 import imageio
 import numpy as np
 sensivility=0.73
-dark_sensivility=13
+dark_sensivility=14
 
 def image_is_not_black(image1_path):
     f = imageio.imread(image1_path, mode='L')
